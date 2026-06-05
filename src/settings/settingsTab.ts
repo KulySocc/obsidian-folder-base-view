@@ -1,5 +1,5 @@
 import { App, Notice, PluginSettingTab, Setting, TFile, TFolder } from "obsidian";
-import type FolderIndexPlugin from "../main";
+import type FolderBaseViewPlugin from "../main";
 import { TriggerMode } from "../interaction/interactionPolicy";
 import {
   createRecommendedBase,
@@ -10,8 +10,8 @@ import {
  * Settings UI (issues 02–04). The recommended-base button (issue 05) extends
  * this tab later.
  */
-export class FolderIndexSettingTab extends PluginSettingTab {
-  constructor(app: App, private readonly plugin: FolderIndexPlugin) {
+export class FolderBaseViewSettingTab extends PluginSettingTab {
+  constructor(app: App, private readonly plugin: FolderBaseViewPlugin) {
     super(app, plugin);
   }
 

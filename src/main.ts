@@ -5,29 +5,29 @@ import {
 } from "./capability/capabilityDecision";
 import { gatherCapabilityFlags } from "./capability/capabilityGate";
 import { Notifier } from "./notice/notifier";
-import { DEFAULT_SETTINGS, FolderIndexSettings } from "./settings/settings";
-import { FolderIndexSettingTab } from "./settings/settingsTab";
+import { DEFAULT_SETTINGS, FolderBaseViewSettings } from "./settings/settings";
+import { FolderBaseViewSettingTab } from "./settings/settingsTab";
 import { resolveIndexBase } from "./resolve/indexBaseResolver";
 import { BasesInjectionAdapter } from "./bases/basesInjectionAdapter";
 import { registerFileExplorerObserver } from "./explorer/fileExplorerObserver";
 import { expandFolder } from "./explorer/folderExpander";
 
 /**
- * Folder Index.
+ * Folder Base View.
  *
  * Issue 01: scaffold + Capability-Gate (graceful inert load).
  * Issue 02: core tracer — a folder-name click opens the Default Index Base in a
  * pinned reused leaf, scoped to that folder via in-memory injection (ADR-0001).
  */
-export default class FolderIndexPlugin extends Plugin {
-  settings: FolderIndexSettings = { ...DEFAULT_SETTINGS };
+export default class FolderBaseViewPlugin extends Plugin {
+  settings: FolderBaseViewSettings = { ...DEFAULT_SETTINGS };
 
   private armed = false;
   private readonly notifier = new Notifier();
 
   async onload(): Promise<void> {
     await this.loadSettings();
-    this.addSettingTab(new FolderIndexSettingTab(this.app, this));
+    this.addSettingTab(new FolderBaseViewSettingTab(this.app, this));
 
     const decision = decideCapability(gatherCapabilityFlags(this.app));
     if (!decision.armed) {
@@ -64,7 +64,7 @@ export default class FolderIndexPlugin extends Plugin {
         onUnconfigured: () => {
           this.notifier.notifyOnce(
             "no-default",
-            "Folder Index: choose a Default Index Base in settings to use folder clicks.",
+            "Folder Base View: choose a Default Index Base in settings to use folder clicks.",
           );
         },
       });

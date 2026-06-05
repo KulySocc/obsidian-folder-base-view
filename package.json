@@ -1,5 +1,5 @@
 {
-  "name": "folder-index",
+  "name": "folder-base-view",
   "version": "0.1.0",
   "description": "Open a folder in the file explorer to view its contents as a Bases-powered table of contents, with no companion note required.",
   "main": "main.js",

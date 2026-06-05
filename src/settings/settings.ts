@@ -10,7 +10,7 @@ import { FolderOverride } from "../resolve/indexBaseResolver";
  * Index Base itself (see ADR-0002). The Folder Override mapping arrives in
  * issue 04.
  */
-export interface FolderIndexSettings {
+export interface FolderBaseViewSettings {
   /** Path to the Default Index Base, or null if unset. */
   defaultIndexBasePath: string | null;
   /** Which click opens the Folder Index. */
@@ -23,7 +23,7 @@ export interface FolderIndexSettings {
   overrides: FolderOverride[];
 }
 
-export const DEFAULT_SETTINGS: FolderIndexSettings = {
+export const DEFAULT_SETTINGS: FolderBaseViewSettings = {
   defaultIndexBasePath: null,
   trigger: "single",
   alsoExpandOnOpen: false,

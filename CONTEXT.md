@@ -1,4 +1,4 @@
-# Folder Index
+# Folder Base View
 
 An Obsidian plugin that turns a folder click in the file explorer into a live, Bases-powered table of contents for that folder — without requiring any companion note or per-folder file.
 

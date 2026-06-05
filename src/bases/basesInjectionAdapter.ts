@@ -12,7 +12,7 @@ const EXCLUDE_BASE_FILTER = 'file.ext != "base"';
 // A non-existent file used purely as `this.file` so `this.file.folder` resolves
 // to the Target Folder. Synthetic (not a real vault file) so it never appears as
 // a row and is never hidden by a base's `file.name != this.file.name` clause.
-const CONTEXT_BASENAME = "__folder-index-context__";
+const CONTEXT_BASENAME = "__folder-base-view-context__";
 const CONTEXT_NAME = `${CONTEXT_BASENAME}.md`;
 
 /**

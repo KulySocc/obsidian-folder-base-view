@@ -51,10 +51,10 @@ export function decideCapability(flags: CapabilityFlags): CapabilityDecision {
 export function capabilityNoticeMessage(reason: DegradationReason): string {
   switch (reason) {
     case "mobile":
-      return "Folder Index is desktop-only for now and stays inactive on mobile.";
+      return "Folder Base View is desktop-only for now and stays inactive on mobile.";
     case "bases-disabled":
-      return "Folder Index needs the core Bases plugin enabled. Folder clicks use Obsidian's default behavior until then.";
+      return "Folder Base View needs the core Bases plugin enabled. Folder clicks use Obsidian's default behavior until then.";
     case "internals-missing":
-      return "Folder Index isn't compatible with this version of Obsidian. Folder clicks use Obsidian's default behavior.";
+      return "Folder Base View isn't compatible with this version of Obsidian. Folder clicks use Obsidian's default behavior.";
   }
 }
