@@ -1,0 +1,9 @@
+{
+  "id": "folder-index",
+  "name": "Folder Index",
+  "version": "0.1.0",
+  "minAppVersion": "1.13.0",
+  "description": "Open a folder in the file explorer to view its contents as a Bases-powered table of contents, with no companion note required.",
+  "author": "KulySocc",
+  "isDesktopOnly": false
+}

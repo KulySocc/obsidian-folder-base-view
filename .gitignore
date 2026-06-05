@@ -1,0 +1,8 @@
+node_modules/
+main.js
+*.js.map
+.DS_Store
+coverage/
+CLAUDE.md
+docs/agents/*
+.scratch/
