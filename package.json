@@ -8,7 +8,12 @@
     "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
     "typecheck": "tsc -noEmit -skipLibCheck",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "deploy": "npm run build && node scripts/deploy.mjs",
+    "deploy:only": "node scripts/deploy.mjs",
+    "check:version": "node scripts/check-version.mjs",
+    "version": "npm run build && node version-bump.mjs && git add manifest.json versions.json",
+    "postversion": "git push origin main --follow-tags && gh release create $npm_package_version main.js manifest.json --generate-notes"
   },
   "keywords": [
     "obsidian",
