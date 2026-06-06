@@ -57,6 +57,9 @@ const context = await esbuild.context({
   ],
   format: "cjs",
   target: "es2018",
+  // Bundle CHANGELOG.md into main.js as a raw string for the release-notes
+  // modal (single source of release notes; see ADR-0003).
+  loader: { ".md": "text" },
   logLevel: "info",
   sourcemap: production ? false : "inline",
   treeShaking: true,

@@ -7,3 +7,4 @@ CLAUDE.md
 docs/agents/*
 .scratch/
 .env
+.release-notes.md

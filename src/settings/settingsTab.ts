@@ -117,6 +117,17 @@ export class FolderBaseViewSettingTab extends PluginSettingTab {
         });
       });
 
+    new Setting(containerEl)
+      .setName("Show release notes on update")
+      .setDesc("Show a what's-new dialog once after Folder Base View updates.")
+      .addToggle((toggle) => {
+        toggle.setValue(this.plugin.settings.showReleaseNotes);
+        toggle.onChange(async (value) => {
+          this.plugin.settings.showReleaseNotes = value;
+          await this.plugin.saveSettings();
+        });
+      });
+
     this.renderOverrides(containerEl);
   }
 

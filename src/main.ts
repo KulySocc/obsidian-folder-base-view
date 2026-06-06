@@ -11,6 +11,11 @@ import { resolveIndexBase } from "./resolve/indexBaseResolver";
 import { BasesInjectionAdapter } from "./bases/basesInjectionAdapter";
 import { registerFileExplorerObserver } from "./explorer/fileExplorerObserver";
 import { expandFolder } from "./explorer/folderExpander";
+import {
+  maybeShowReleaseNotes,
+  showReleaseNotesForCurrent,
+} from "./release/showReleaseNotes";
+import changelog from "../CHANGELOG.md";
 
 /**
  * Folder Base View.
@@ -28,6 +33,18 @@ export default class FolderBaseViewPlugin extends Plugin {
   async onload(): Promise<void> {
     await this.loadSettings();
     this.addSettingTab(new FolderBaseViewSettingTab(this.app, this));
+
+    // Release notes are a property of the plugin *update*, not its runtime
+    // capability — wire them before the capability gate so they still surface
+    // when the plugin loads inert (e.g. on an incompatible Obsidian version).
+    this.app.workspace.onLayoutReady(() => {
+      void maybeShowReleaseNotes(this, changelog);
+    });
+    this.addCommand({
+      id: "show-release-notes",
+      name: "Show release notes",
+      callback: () => showReleaseNotesForCurrent(this, changelog),
+    });
 
     const decision = decideCapability(gatherCapabilityFlags(this.app));
     if (!decision.armed) {

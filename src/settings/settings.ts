@@ -21,6 +21,13 @@ export interface FolderBaseViewSettings {
   excludeBaseFiles: boolean;
   /** Exact-match Folder Override Bases (folder path → base path). */
   overrides: FolderOverride[];
+  /** Show the what's-new dialog once after the plugin updates. */
+  showReleaseNotes: boolean;
+  /**
+   * Highest version whose release notes have been shown, or null on a fresh
+   * install (in which case the notes are recorded silently, never shown).
+   */
+  lastShownReleaseVersion: string | null;
 }
 
 export const DEFAULT_SETTINGS: FolderBaseViewSettings = {
@@ -29,4 +36,6 @@ export const DEFAULT_SETTINGS: FolderBaseViewSettings = {
   alsoExpandOnOpen: false,
   excludeBaseFiles: true,
   overrides: [],
+  showReleaseNotes: true,
+  lastShownReleaseVersion: null,
 };
