@@ -7,7 +7,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 The `### Added / Changed / Fixed` headings below render in-app as
 **✨ New / 💎 Improvements / 🐞 Fixes** (see [ADR-0003](docs/adr/0003-changelog-single-source.md)).
 
-## [0.2.0] - 2026-06-06
+## [0.1.1] - 2026-06-06
 
 ### Added
 - **Release notes:** a what's-new dialog now appears once after the plugin updates, summarising what changed since the version you last saw. Re-open it anytime with the *Show release notes* command.
